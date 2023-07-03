@@ -38,7 +38,7 @@ from langchain.llms import OpenAI
 
 
 def load_LLM(input_patient_name, input_situation, stringio):
-    os.environ['OPENAI_API_KEY'] = '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'
+    os.environ['OPENAI_API_KEY'] = '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'
     ##with open('CBTmodel.txt', 'r') as file:
     content = stringio.read()
 
