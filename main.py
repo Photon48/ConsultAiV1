@@ -166,8 +166,8 @@ with st.form("input_form"):
 
     with col2:
         st.markdown("Make sure the file is a .txt format with SPEAKER 1 and SPEAKER 2 addressed as Patient or Therapist.")
-        input_patient_name = st.text_input(label="Patient's name...(Leave blank if you want)", placeholder=input_patient_name, key="patient_name_input")
-        input_situation = st.text_area(label="In one scentence, describe the Session reason...", placeholder=input_descrip, key="situation_input")
+        input_patient_name = st.text_input(label="Patient's name...(Leave blank if you want)", value=input_patient_name, key="patient_name_input")
+        input_situation = st.text_area(label="In one scentence, describe the Session reason...", value=input_descrip, key="situation_input")
 
     ##def get_text():
         ##input_text = st.text_area(label="Your Email...", key="email_input")
