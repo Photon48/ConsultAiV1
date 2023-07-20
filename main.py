@@ -147,8 +147,6 @@ st.markdown("## Enter Your transcript .txt file here:")
 with open('CBTmodel.txt', 'r') as file:
     file_content = file.read()
 
-if 'button_clicked' not in st.session_state:
-    st.session_state['button_clicked'] = False
 
 if st.button('CBT Example - Lucy'):
     st.download_button(
@@ -157,13 +155,7 @@ if st.button('CBT Example - Lucy'):
         file_name='CBTmodel.txt',
         mime='text/plain',
     )
-    st.session_state['button_clicked'] = True
-
-if st.session_state['button_clicked']:
-    input_patient_name = "Lucy"
-    input_descrip = "CBT model. her first session with the therapist."
-    st.session_state['button_clicked'] = False
-
+st.markdown("Please Write if using example, Name = Lucy & Description = CBT mode, her first therapy session.")
 
 with st.form("input_form"):
 
@@ -174,8 +166,8 @@ with st.form("input_form"):
 
     with col2:
         st.markdown("Make sure the file is a .txt format with SPEAKER 1 and SPEAKER 2 addressed as Patient or Therapist.")
-        input_patient_name = st.text_input(label="Patient's name...(Leave blank if you want)", value=input_patient_name, key="patient_name_input")
-        input_situation = st.text_area(label="In one scentence, describe the Session reason...", value=input_descrip, key="situation_input")
+        input_patient_name = st.text_input(label="Patient's name...(Leave blank if you want)", key="patient_name_input")
+        input_situation = st.text_area(label="In one scentence, describe the Session reason...", key="situation_input")
 
     ##def get_text():
         ##input_text = st.text_area(label="Your Email...", key="email_input")
