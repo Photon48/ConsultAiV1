@@ -1,8 +1,12 @@
+
 import streamlit as st
 # To get environment variables
 import os
 from datetime import date
 from io import StringIO
+
+
+
 
 
 # Make the display a bit wider
@@ -139,17 +143,34 @@ with col2:
     st.image(image='frontPageImage.jpg', width=500, caption='')
 
 st.markdown("## Enter Your transcript .txt file here:")
+
 with st.form("input_form"):
 
+    
     col1, col2 = st.columns(2)
 
     with col1:
+        input_patient_name = ""
+        input_descrip = ""
+        if st.button('CBT Example - Lucy'):
+            input_patient_name = "Lucy"
+            input_descrip = "CBT model. her first session with the therapist."
+            st.download_button(
+                label="Please  download this and upload below.",
+                file_name='CBTmodel.txt',
+            )
         uploaded_transcript = st.file_uploader("Upload file here", accept_multiple_files=False)
+
     with col2:
         st.markdown("Make sure the file is a .txt format with SPEAKER 1 and SPEAKER 2 addressed as Patient or Therapist.")
-        input_patient_name = " "
-        input_patient_name = st.text_input(label="Patient's name...(Leave blank if you want)", key="patient_name_input")
-        input_situation = st.text_area(label="In one scentence, describe the Session reason...", key="situation_input")
+        input_patient_name = ""
+        input_descrip = ""
+        if st.button('CBt Example - Lucy'):
+            input_patient_name = "Lucy"
+            input_descrip = ""
+        input_patient_name = st.text_input(label="Patient's name...(Leave blank if you want)", value=input_patient_name, key="patient_name_input")
+        input_situation = st.text_area(label="In one scentence, describe the Session reason...", value=input_descrip, key="situation_input")
+
     ##def get_text():
         ##input_text = st.text_area(label="Your Email...", key="email_input")
         ##return input_text
@@ -163,6 +184,9 @@ if submitted:
     st.markdown("## Your AI Generated SOAP Note:")
     final_output = load_LLM(input_patient_name, input_situation, stringio)
     st.write(final_output)
+st.markdown("use Example?")
+
+
 
 
 
