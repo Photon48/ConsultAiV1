@@ -153,14 +153,15 @@ if 'input_descrip' not in st.session_state:
     st.session_state['input_descrip'] = ''
 
 if st.button('CBT Example - Lucy'):
+    st.session_state['input_patient_name'] = "Lucy"
+    st.session_state['input_descrip'] = "CBT model. her first session with the therapist."
     st.download_button(
-        label="Please  download this and upload below.",
+        label="CBT Example = Lucy (Please download and upload below)",
         data= file_content,
         file_name='CBTmodel.txt',
         mime='text/plain',
     )
-    st.session_state['input_patient_name'] = "Lucy"
-    st.session_state['input_descrip'] = "CBT model. her first session with the therapist."
+
 
 with st.form("input_form"):
 
