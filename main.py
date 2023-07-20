@@ -182,7 +182,7 @@ if submitted:
     st.markdown("## Your AI Generated SOAP Note:")
     final_output = load_LLM(input_patient_name, input_situation, stringio)
     st.write(final_output)
-st.markdown("use Example?")
+
 
 
 
