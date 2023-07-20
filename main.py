@@ -143,10 +143,15 @@ with col2:
     st.image(image='frontPageImage.jpg', width=500, caption='')
 
 st.markdown("## Enter Your transcript .txt file here:")
-input_patient_name = ""
-input_descrip = ""
+
 with open('CBTmodel.txt', 'r') as file:
     file_content = file.read()
+
+if 'input_patient_name' not in st.session_state:
+    st.session_state['input_patient_name'] = ''
+if 'input_descrip' not in st.session_state:
+    st.session_state['input_descrip'] = ''
+
 if st.button('CBT Example - Lucy'):
     st.download_button(
         label="Please  download this and upload below.",
@@ -154,8 +159,9 @@ if st.button('CBT Example - Lucy'):
         file_name='CBTmodel.txt',
         mime='text/plain',
     )
-    input_patient_name = "Lucy"
-    input_descrip = "CBT model. her first session with the therapist."
+    st.session_state['input_patient_name'] = "Lucy"
+    st.session_state['input_descrip'] = "CBT model. her first session with the therapist."
+
 with st.form("input_form"):
 
     
