@@ -97,13 +97,13 @@ def load_LLM(input_patient_name, input_situation, stringio):
     Patient Name: {Patient_Name}
     Session Date: {Session_Date}
 
-    SUBJECTIVE: A summary of the patient's reported feelings, thoughts, and perceptions that are directly relevant to their mental health. Include patient quotes that highlight their symptoms or complaints, while maintaining respect for their personal stories.
+    SUBJECTIVE (Keep ONLY 1 title): A summary of the patient's reported feelings, thoughts, and perceptions that are directly relevant to their mental health. Include patient quotes that highlight their symptoms or complaints, while maintaining respect for their personal stories.
 
-    OBJECTIVE: Summarize any observations made by the therapist about the patient's behavior or demeanor during the session. Include information about the patient's mood, affect, cooperativeness, insight, cognitive function, eye contact, tone of voice, etc., if provided.
+    OBJECTIVE (Keep ONLY 1 title): Summarize any observations made by the therapist about the patient's behavior or demeanor during the session. Include information about the patient's mood, affect, cooperativeness, insight, cognitive function, eye contact, tone of voice, etc., if provided.
 
-    ASSESSMENT: Provide a concise interpretation of the patient's mental health status based on the conversation, giving clinical impressions or potential diagnoses. Avoid assumptions or speculations.
+    ASSESSMENT (Keep ONLY 1 title): Provide a concise interpretation of the patient's mental health status based on the conversation, giving clinical impressions or potential diagnoses. Avoid assumptions or speculations.
 
-    PLAN: Outline the recommended next steps or treatment plan. This should include referrals or additional services, plans for the next session, and discussions of medication, if applicable."
+    PLAN (Keep ONLY 1 title): Outline the recommended next steps or treatment plan. This should include referrals or additional services, plans for the next session, and discussions of medication, if applicable."
 
 
     """
