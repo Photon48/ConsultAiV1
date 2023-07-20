@@ -143,22 +143,21 @@ with col2:
     st.image(image='frontPageImage.jpg', width=500, caption='')
 
 st.markdown("## Enter Your transcript .txt file here:")
-
+input_patient_name = ""
+input_descrip = ""
+if st.button('CBT Example - Lucy'):
+    input_patient_name = "Lucy"
+    input_descrip = "CBT model. her first session with the therapist."
+    st.download_button(
+        label="Please  download this and upload below.",
+        file_name='CBTmodel.txt',
+    )
 with st.form("input_form"):
 
     
     col1, col2 = st.columns(2)
 
     with col1:
-        input_patient_name = ""
-        input_descrip = ""
-        if st.button('CBT Example - Lucy'):
-            input_patient_name = "Lucy"
-            input_descrip = "CBT model. her first session with the therapist."
-            st.download_button(
-                label="Please  download this and upload below.",
-                file_name='CBTmodel.txt',
-            )
         uploaded_transcript = st.file_uploader("Upload file here", accept_multiple_files=False)
 
     with col2:
