@@ -85,14 +85,14 @@ def load_LLM(input_patient_name, input_situation, stringio):
     ##-------------------------------------------------
     template="""
 
-    "Given the following key details from a therapy session, generate a SINGLE SOAP note following the given structure. Maintain focus on the provided information, avoid introducing new information not present in the details, and respect the patient's narrative. Include all information:
+    "Given the following key details from a therapy session, compile everything into a SINGLE SOAP note following the given structure. Maintain focus on the provided information, avoid introducing new information not present in the details, and respect the patient's narrative. Include all information:
 
     Subjective Details:
     Objective Details:
     Assessment Details:
     Plan Details:
 
-    Generate a SINGLE SOAP note with the following structure:
+    Generate ONLY ONE (1) SOAP note with the following structure:
 
     Patient Name: {Patient_Name}
     Session Date: {Session_Date}
@@ -155,7 +155,7 @@ if st.button('CBT Example - Lucy'):
         file_name='CBTmodel.txt',
         mime='text/plain',
     )
-st.markdown("Please Write if using example, Name = Lucy & Description = CBT mode, her first therapy session.")
+st.markdown("Please Write if using example, Name = Lucy & Description = this is a example of a CBT model, and this is Lucy's first therapy session.")
 
 with st.form("input_form"):
 
@@ -178,7 +178,6 @@ with st.form("input_form"):
 
 if submitted:
     stringio = StringIO(uploaded_transcript.getvalue().decode("utf-8"))
-    st.write(stringio)
     st.markdown("## Your AI Generated SOAP Note:")
     final_output = load_LLM(input_patient_name, input_situation, stringio)
     st.write(final_output)
