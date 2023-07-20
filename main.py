@@ -150,7 +150,9 @@ if st.button('CBT Example - Lucy'):
     input_descrip = "CBT model. her first session with the therapist."
     st.download_button(
         label="Please  download this and upload below.",
+        data=txt,
         file_name='CBTmodel.txt',
+        mime='text/csv',
     )
 with st.form("input_form"):
 
