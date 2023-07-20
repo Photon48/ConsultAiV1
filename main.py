@@ -145,14 +145,16 @@ with col2:
 st.markdown("## Enter Your transcript .txt file here:")
 input_patient_name = ""
 input_descrip = ""
+with open('CBTmodel.txt', 'r') as file:
+    file_content = file.read()
 if st.button('CBT Example - Lucy'):
     input_patient_name = "Lucy"
     input_descrip = "CBT model. her first session with the therapist."
     st.download_button(
         label="Please  download this and upload below.",
-        data= file,
+        data= file_content,
         file_name='CBTmodel.txt',
-        mime='text/csv',
+        mime='text/plain',
     )
 with st.form("input_form"):
 
