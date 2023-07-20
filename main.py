@@ -147,20 +147,22 @@ st.markdown("## Enter Your transcript .txt file here:")
 with open('CBTmodel.txt', 'r') as file:
     file_content = file.read()
 
-if 'input_patient_name' not in st.session_state:
-    st.session_state['input_patient_name'] = ''
-if 'input_descrip' not in st.session_state:
-    st.session_state['input_descrip'] = ''
+if 'button_clicked' not in st.session_state:
+    st.session_state['button_clicked'] = False
 
 if st.button('CBT Example - Lucy'):
-    st.session_state['input_patient_name'] = "Lucy"
-    st.session_state['input_descrip'] = "CBT model. her first session with the therapist."
     st.download_button(
-        label="CBT Example = Lucy (Please download and upload below)",
+        label="Please  download this and upload below.",
         data= file_content,
         file_name='CBTmodel.txt',
         mime='text/plain',
     )
+    st.session_state['button_clicked'] = True
+
+if st.session_state['button_clicked']:
+    input_patient_name = "Lucy"
+    input_descrip = "CBT model. her first session with the therapist."
+    st.session_state['button_clicked'] = False
 
 
 with st.form("input_form"):
@@ -172,8 +174,8 @@ with st.form("input_form"):
 
     with col2:
         st.markdown("Make sure the file is a .txt format with SPEAKER 1 and SPEAKER 2 addressed as Patient or Therapist.")
-        input_patient_name = st.text_input(label="Patient's name...(Leave blank if you want)", value=st.session_state['input_patient_name'], key="patient_name_input")
-        input_situation = st.text_area(label="In one scentence, describe the Session reason...", value=st.session_state['input_descrip'], key="situation_input")
+        input_patient_name = st.text_input(label="Patient's name...(Leave blank if you want)", value=input_patient_name, key="patient_name_input")
+        input_situation = st.text_area(label="In one scentence, describe the Session reason...", value=input_descrip, key="situation_input")
 
     ##def get_text():
         ##input_text = st.text_area(label="Your Email...", key="email_input")
